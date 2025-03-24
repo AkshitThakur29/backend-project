@@ -25,11 +25,11 @@ const userSchema = new mongoose.Schema(
       trim: true,
       index: true,
     },
-    avtar: {
+    avatar: {
       type: String, //cloudinary url
-      required: true,
+      required:true,
     },
-    coverimage: {
+    coverImage: {
       type: String,
     },
     watchhistory: [
