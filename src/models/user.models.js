@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "pasword is required"],
     },
-    refreshtoken: {
+    refreshToken: {
       type: String,
     },
   },
@@ -61,7 +61,7 @@ userSchema.methods.isPasswordCorrect=async function(password){
 }
 
 userSchema.methods.generateAccessToken=function(){
-    jwt.sign(
+   return jwt.sign(
         {
             _id:this._id,
             email:this.email,
@@ -76,11 +76,11 @@ userSchema.methods.generateAccessToken=function(){
 }
 
 userSchema.methods.generateRefreshToken= function(){
-    jwt.sign(
+   return jwt.sign(
         {
             _id:this._id,
         },
-        process.env.REFRESH_TOKEN_SCERET,
+        process.env.REFRESH_TOKEN_SECRET,
         {
             expiresIn:process.env.REFRESH_TOKEN_EXPIRY
         }
