@@ -4,7 +4,7 @@ import cors from "cors"
 
 const app = express()
 
-app.use(cors({
+app.use(cors({                  // app.use mostely used when we need to config or we talks about middleware.
     origin:process.env.CORS_ORIGIN,
     credentials:true
 }))
